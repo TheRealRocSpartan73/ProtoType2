@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 10.0f;
     public float leftBoundary = -10f;
     public float rightBoundary = 10f;
+    public GameObject projecttilePrefab;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +32,15 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(rightBoundary, transform.position.y, transform.position.z);
         }
+        //Move Left or right
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * timeDiff * speed);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //LauchProjectile
+            Instantiate(projecttilePrefab, transform.position, projecttilePrefab.transform.rotation);
+        }
+        
     }
 }
