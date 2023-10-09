@@ -9,7 +9,10 @@ public class GameManager : MonoBehaviour
     private int numberofLives = 3;
     void Start()
     {
-        
+        //Display to console starting values for score and Lives
+        Debug.Log("**********Game Start *************************");
+        Debug.Log("Player has started with " + numberofLives + " Lives");
+        Debug.Log("Player Score is " + score);
     }
 
     // Update is called once per frame

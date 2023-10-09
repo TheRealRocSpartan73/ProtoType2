@@ -30,9 +30,10 @@ public class DetectCollison : MonoBehaviour
         }
         else if(other.CompareTag("Animal"))   //Animal has been hit by pizza
         {
-            gameManager.AddScore(5); //Increase score
+
+            gameManager.AddScore(5);
+            other.GetComponent<AnimalHunger>().FeedAnimal(1);//If animal is hit by pizza, increase amount it has been fed
             Destroy(gameObject);
-            Destroy(other.gameObject);
         }
 
     }

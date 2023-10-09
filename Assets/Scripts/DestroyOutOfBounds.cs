@@ -31,6 +31,7 @@ public class DestroyOutOfBounds : MonoBehaviour
         }
         else if ((transform.position.x > sideBoundary) || (transform.position.x < -sideBoundary)) //If object moves past left OR Right boundary, delete
         {
+            Debug.Log("Bad player, animal ran off-screen, losing a life"); //Farmer loses a life for letting animal get offscreen without food.
             gameManager.AddLives(-1);  //Bad remove a life
             Destroy(gameObject);
         }

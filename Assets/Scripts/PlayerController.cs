@@ -7,11 +7,11 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput; //Capture horizontal movement
     public float verticalInput;  //Capture vertical movement
     public float timeDiff = 0f; //Capture time between frames
-    public float speed = 10.0f; //Player movement speed
+    public float speed = 15.0f; //Player movement speed
     public float leftBoundary = -23.4f;  //Left boundary for player movement
     public float rightBoundary = -23.3f;  //Right boundary for player movement
     public float topBoundary = 20.0f; //Top boundary for player movement
-    public float bottomBoundary = 0f; //Bottom boundary for player movement
+    public float bottomBoundary = -1.65f; //Bottom boundary for player movement
     public Transform projectileSpawnPoint;
 
     public GameObject projecttilePrefab; //Placeholder for the attached pizza object
