@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class DetectCollison : MonoBehaviour
 {
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Get a reference to the GameManager object
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -19,14 +21,16 @@ public class DetectCollison : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        //If player is hit by an animal -- game over man
+        //If player is hit by an animal reduce lives
         if (other.CompareTag("myFarmer"))
         {
-            Debug.Log("Game Over Farmer Killed");
+            gameManager.AddLives(-1);
+            Debug.Log("Farmer Hit");
             Destroy(gameObject);
         }
-        else   //Destroy anything else when collision detected
+        else if(other.CompareTag("Animal"))   //Animal has been hit by pizza
         {
+            gameManager.AddScore(5); //Increase score
             Destroy(gameObject);
             Destroy(other.gameObject);
         }

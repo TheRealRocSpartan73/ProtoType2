@@ -6,12 +6,14 @@ public class DestroyOutOfBounds : MonoBehaviour
 {
     private float topBoundary = 34;
     private float bottomBoundary = -11.5f;
-    private float sideBoundary = 30f; 
+    private float sideBoundary = 30f;
+    private GameManager gameManager;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Get a reference to the GameManager object
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -24,12 +26,12 @@ public class DestroyOutOfBounds : MonoBehaviour
         } 
         else if (transform.position.z < bottomBoundary)
         {
-            Debug.Log("Game Over!");
+            gameManager.AddLives(-1);  //Bad remove a life
             Destroy(gameObject);
         }
         else if ((transform.position.x > sideBoundary) || (transform.position.x < -sideBoundary)) //If object moves past left OR Right boundary, delete
         {
-            Debug.Log("Game Over!");
+            gameManager.AddLives(-1);  //Bad remove a life
             Destroy(gameObject);
         }
             
