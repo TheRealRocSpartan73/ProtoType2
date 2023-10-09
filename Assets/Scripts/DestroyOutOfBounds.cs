@@ -16,11 +16,13 @@ public class DestroyOutOfBounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If a pizza or animal object goes past game screen boundaries, remove it.
         if (transform.position.z > topBoundary)
         {
             Destroy(gameObject);
         } else if (transform.position.z < bottomBoundary)
         {
+            Debug.Log("Game Over!");
             Destroy(gameObject);
         }
 
