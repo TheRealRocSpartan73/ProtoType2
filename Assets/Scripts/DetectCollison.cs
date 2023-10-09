@@ -18,7 +18,18 @@ public class DetectCollison : MonoBehaviour
     //When collison between objects occurs, delete both objects.
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
-        Destroy(other.gameObject);
+
+        //If player is hit by an animal -- game over man
+        if (other.CompareTag("myFarmer"))
+        {
+            Debug.Log("Game Over Farmer Killed");
+            Destroy(gameObject);
+        }
+        else   //Destroy anything else when collision detected
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
+
     }
 }
